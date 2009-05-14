@@ -1,0 +1,7 @@
+This is my collection of dotfiles.
+
+To install it, clone the repository and execute the following rake task:
+
+rake install
+
+Thanks to Ryan Bates, from whom I shamelessly copied the Rakefile. :)
