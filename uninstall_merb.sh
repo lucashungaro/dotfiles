@@ -1,0 +1,1 @@
+sudo gem list | grep -E '^((dm|do|merb)[-_a-z]*|data_objects|extlib)' | awk '{print $1}' | xargs sudo gem uninstall -Ixa;
