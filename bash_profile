@@ -67,7 +67,8 @@ alias less='less -r'                          # raw control characters
 alias grep='egrep --color'                    # show differences in colour
 
 # textmate #
-alias bundles='sh ~/.update_tmbundles.sh'
+alias tm_update_bundles="sh ~/.update_tmbundles.sh"
+alias tm_reload_bundles= $(osascript -e 'tell app "TextMate" to reload bundles')
 
 # Rubygems-related
 alias unmerb='sh ~/.uninstall_merb.sh'
