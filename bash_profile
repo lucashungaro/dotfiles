@@ -10,17 +10,11 @@ export LSCOLORS=DxGxcxdxCxegedabagacad
 ### Aliases ###
 
 # projects #
-alias bb='cd ~/projects/blogblogs'
-alias ba='cd ~/projects/blogblogs-api'
-alias pra='cd ~/projects/pratico'
-alias bra='cd ~/projects/brasigo'
-alias sw='cd ~/projects/swat-dna'
-alias la='cd ~/projects/livestream-admin'
-alias lpo='cd ~/projects/livestream-portal'
+alias pra='cd ~/projects/personal/pratico'
 alias sand='cd ~/projects/sandbox'
-alias le='cd ~/projects/learnings/erlang'
-alias lr='cd ~/projects/learnings/ruby'
-alias dotf='cd ~/projects/dotfiles'
+alias le='cd ~/projects/personal/learnings/erlang'
+alias lr='cd ~/projects/personal/learnings/ruby'
+alias dotf='cd ~/projects/personal/dotfiles'
 
 # ruby and rails related #
 alias con="./script/console"
