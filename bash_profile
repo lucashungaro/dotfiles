@@ -75,6 +75,11 @@ alias unpair='sh ~/.unpair'
 # RabbitMQ #
 alias startrabbit='sudo -H -u rabbitmq rabbitmq-server'
 
+# PostgreSQL #
+alias startpostgres='sudo -H -u postgres /opt/local/lib/postgresql83/bin/pg_ctl -D /opt/local/var/db/postgresql83/defaultdb start'
+alias stoppostgres='sudo -H -u postgres /opt/local/lib/postgresql83/bin/pg_ctl -D /opt/local/var/db/postgresql83/defaultdb stop'
+
+
 ### End Aliases ###
 
 ### SSH ###
