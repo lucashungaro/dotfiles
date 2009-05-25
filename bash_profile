@@ -1,7 +1,7 @@
 ### Environment variables ###
-export PATH="/usr/local/bin:/usr/local/sbin:/opt/local/bin:/opt/local/sbin:/opt/ruby19/bin:$PATH:."
-export MANPATH="/opt/local/share/man:$MANPATH"
-export EDITOR="mate -w"
+export PATH='/usr/local/bin:/usr/local/sbin:/opt/local/bin:/opt/local/sbin:/opt/ruby19/bin:$PATH:.'
+export MANPATH='/opt/local/share/man:$MANPATH'
+export EDITOR='mate -w'
 
 export CLICOLOR=1
 export TERM=xterm-color
@@ -17,15 +17,15 @@ alias lr='cd ~/projects/personal/learnings/ruby'
 alias dotf='cd ~/projects/personal/dotfiles'
 
 # ruby and rails related #
-alias con="./script/console"
-alias ser="./script/server"
-alias lser="./script/server -e localhost"
-alias gen="./script/generate"
+alias con='./script/console'
+alias ser='./script/server'
+alias lser='./script/server -e localhost'
+alias gen='./script/generate'
 
-alias tstart="thin start"
-alias tstop="thin stop"
+alias tstart='thin start'
+alias tstop='thin stop'
 
-alias rmate="mate app/ config/ db/ lib/ public/ test/ spec/ stories/ Capfile *.rb Rakefile README*"
+alias rmate='mate app/ config/ db/ lib/ public/ test/ spec/ stories/ Capfile *.rb Rakefile README*'
 
 alias rt='rake --trace'
 alias rtf='rake test:functionals --trace'
@@ -34,9 +34,9 @@ alias rtl='rake test:lib --trace'
 alias rtp='rake test:plugins --trace'
 alias rtu='rake test:units --trace'
 
-alias migrate="rake db:migrate db:test:prepare"
-alias remigrate="rake db:migrate && rake db:migrate:redo && rake db:schema:dump db:test:prepare"
-alias gadd="git add -u && git add . && git status"
+alias migrate='rake db:migrate db:test:prepare'
+alias remigrate='rake db:migrate && rake db:migrate:redo && rake db:schema:dump db:test:prepare'
+alias gadd='git add -u && git add . && git status'
 alias rdr='rake db:rollback'
 alias rout='rake routes'
 alias mrout='rake routes | mate'
@@ -44,11 +44,11 @@ alias mrout='rake routes | mate'
 alias cdd='cap dev:deploy'
 
 # system #
-alias home="cd ~"
-alias l="ls -lah"
-alias tf="tail -f"
-alias mb="mate ~/.bash_profile"
-alias rehash="source ~/.bash_profile"
+alias home='cd ~'
+alias l='ls -lah'
+alias tf='tail -f'
+alias mb='mate ~/.bash_profile'
+alias rehash='source ~/.bash_profile'
 
 alias cp='cp -i'
 alias mv='mv -i'
@@ -61,7 +61,7 @@ alias less='less -r'                          # raw control characters
 alias grep='egrep --color'                    # show differences in colour
 
 # textmate #
-alias tm_update_bundles="sh ~/.update_tmbundles.sh"
+alias tm_update_bundles='sh ~/.update_tmbundles.sh'
 alias tm_reload_bundles="osascript -e 'tell app \"TextMate\" to reload bundles'"
 
 # Rubygems-related
@@ -71,6 +71,9 @@ alias gems='cd /Library/Ruby/Gems/1.8/gems'
 # Pair programming
 alias pair='sh ~/.pair'
 alias unpair='sh ~/.unpair'
+
+# RabbitMQ #
+alias startrabbit='sudo -H -u rabbitmq rabbitmq-server'
 
 ### End Aliases ###
 
