@@ -49,6 +49,7 @@ alias l='ls -lah'
 alias tf='tail -f'
 alias mb='mate ~/.bash_profile'
 alias rehash='source ~/.bash_profile'
+alias clone='~/.terminal_clone_tab.sh'
 
 alias cp='cp -i'
 alias mv='mv -i'

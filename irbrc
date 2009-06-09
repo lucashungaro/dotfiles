@@ -23,32 +23,44 @@ end
 
 # Misc functions
 
-# from http://themomorohoax.com/2009/03/27/irb-tip-load-files-faster  
-def ls  
-  %x{ls}.split("\n")  
-end  
-  
-def cd(dir)
-  Dir.chdir(dir)  
-  Dir.pwd  
-end  
-  
-def pwd  
-  Dir.pwd  
+# from http://themomorohoax.com/2009/03/27/irb-tip-load-files-faster
+def ls
+  %x{ls}.split("\n")
 end
 
-def rl(file_name = nil)  
-  if file_name.nil?  
-    if !@recent.nil?  
-      rl(@recent)   
-    else  
-      puts "No recent file to reload"  
-    end  
-  else  
-    file_name += '.rb' unless file_name =~ /\.rb/  
-    @recent = file_name   
-    load "#{file_name}"  
-  end  
+def cd(dir)
+  Dir.chdir(dir)
+  Dir.pwd
+end
+
+def pwd
+  Dir.pwd
+end
+
+def rl(file_name = nil)
+  if file_name.nil?
+    if !@recent.nil?
+      rl(@recent)
+    else
+      puts "No recent file to reload"
+    end
+  else
+    file_name += '.rb' unless file_name =~ /\.rb/
+    @recent = file_name
+    load "#{file_name}"
+  end
+end
+
+def copy(str)
+  IO.popen('pbcopy', 'w') { |f| f << str.to_s }
+end
+
+def paste
+  `pbpaste`
+end
+
+def ep
+  eval(paste)
 end
 
 # Aliases
