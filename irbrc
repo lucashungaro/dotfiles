@@ -1,11 +1,22 @@
 # Autocomplete
 require 'irb/completion'
 require 'rubygems'
-require 'wirble'
 require 'pp'
 
-Wirble.init
-Wirble.colorize
+begin
+  require 'wirble'
+  Wirble.init
+  Wirble.colorize
+rescue
+  puts "Failed to initialize Wirble"
+end
+
+begin
+  require 'hirb'
+  Hirb.enable
+rescue
+  puts "Failed to initialize Hirb"
+end
 
 IRB.conf[:AUTO_INDENT] = true
 
