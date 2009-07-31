@@ -190,119 +190,22 @@ end
 
 desc 'Push all changes to the SVN repository'
 task 'git:publish' do
-  branch = `git branch | grep \"*\"`.strip[(2..-1)]
-  if (branch == "master") then
-    switch = false
-  else
-    `git diff-files --quiet`
-    if ($?.exitstatus == 1) then
-      puts("You have outstanding changes. Please commit them first.")
-      exit(1)
-    end
-    puts("* Merging topic '#{branch}' back into master...")
-    `git checkout master`
-    sh("git merge #{branch}")
-    switch = true
-  end
-  puts("* Pushing changes...")
-  sh("git svn dcommit")
-  if switch then
-    puts("* Switching back to #{branch}...")
-    `git checkout #{branch}`
-  end
+  # do nothing
 end
 
 desc 'Pull new commits from the repository'
 task 'git:pull' do
-  puts("* Pulling in new commits...")
-  sh("git fetch")
-  `git diff-files --quiet`
-  if ($?.exitstatus == 1) then
-    stash = true
-    clear = (`git stash list`.scan("\n").size == 0)
-    puts("* Saving changes...")
-    `git stash save`
-  else
-    stash = false
-  end
-  branch = `git branch | grep \"*\"`.strip[(2..-1)]
-  if (branch == "master") then
-    switch = false
-  else
-    switch = true
-    `git checkout master`
-    puts("* Switching back to master...")
-  end
-  puts("* Applying new commits...")
-  sh("git rebase origin")
-  if switch then
-    puts("* Porting changes into #{branch}...")
-    `git checkout #{branch}`
-    sh("git rebase master")
-  end
-  if stash then
-    puts("* Applying changes...")
-    sh("git stash apply")
-    `git stash clear` if clear
-  end
+  # do nothing
 end
 
 desc 'Push all changes to the repository'
 task 'git:push' do
-  branch = `git branch | grep \"*\"`.strip[(2..-1)]
-  if (branch == "master") then
-    switch = false
-  else
-    `git diff-files --quiet`
-    if ($?.exitstatus == 1) then
-      puts("You have outstanding changes. Please commit them first.")
-      exit(1)
-    end
-    puts("* Merging topic '#{branch}' back into master...")
-    `git checkout master`
-    sh("git merge #{branch}")
-    switch = true
-  end
-  puts("* Pushing changes...")
-  sh("git push")
-  if switch then
-    puts("* Switching back to #{branch}...")
-    `git checkout #{branch}`
-  end
+  # do nothing
 end
 
 desc 'Pull new commits from the SVN repository'
 task 'git:rebase' do
-  `git diff-files --quiet`
-  if ($?.exitstatus == 1) then
-    stash = true
-    clear = (`git stash list`.scan("\n").size == 0)
-    puts("* Saving changes...")
-    `git stash save`
-  else
-    stash = false
-  end
-  branch = `git branch | grep \"*\"`.strip[(2..-1)]
-  if (branch == "master") then
-    switch = false
-  else
-    switch = true
-    `git checkout master`
-    puts("* Switching back to master...")
-  end
-  puts("* Pulling in new commits...")
-  sh("git svn fetch")
-  sh("git rebase trunk")
-  if switch then
-    puts("* Porting changes into #{branch}...")
-    `git checkout #{branch}`
-    sh("git rebase master")
-  end
-  if stash then
-    puts("* Applying changes...")
-    sh("git stash apply")
-    `git stash clear` if clear
-  end
+  # do nothing
 end
 
 desc 'Downloads and installs latest version of git'
@@ -548,4 +451,9 @@ task 'ssh:install_public_key' do
   rescue Net::SSH::AuthenticationFailed
     puts("\nWhat we've got here... is a failure to communicate.  There was a problem authenticating you.")
   end
+end
+
+desc 'Triggers TextMate to reload all bundles'
+task 'textmate:bundles:reload' do
+  sh("osascript -e 'tell app \"TextMate\" to reload bundles'")
 end

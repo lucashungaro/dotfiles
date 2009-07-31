@@ -2,6 +2,7 @@
 export PATH="/usr/local/bin:/usr/local/sbin:/opt/local/bin:/opt/local/sbin:/opt/ruby19/bin:$PATH:."
 export MANPATH="/opt/local/share/man:$MANPATH"
 export EDITOR='mate -w'
+export LANG="en_US.UTF-8"
 
 export CLICOLOR=1
 export TERM=xterm-color

@@ -7,6 +7,7 @@
   b = branch -a
   ci = commit
   sci = svn dcommit
+  pm = pull origin master
 [color]
   branch = auto
   diff = auto
@@ -17,4 +18,4 @@
 [apply]
   whitespace = nowarn
 [push]
-	default = current
+  default = current
