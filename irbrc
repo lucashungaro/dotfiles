@@ -1,34 +1,41 @@
 # Autocomplete
-require 'irb/completion'
-require 'rubygems'
-require 'pp'
+require "irb/completion"
+require "rubygems"
+require "pp"
 
 begin
-  require 'wirble'
+  require "wirble"
   Wirble.init
   Wirble.colorize
-rescue
+rescue LoadError
   puts "Failed to initialize Wirble"
 end
 
 begin
-  require 'hirb'
+  require "hirb"
   Hirb.enable
-rescue
+rescue LoadError
   puts "Failed to initialize Hirb"
 end
 
+begin
+  require "looksee/shortcuts"
+rescue LoadError
+  puts "Failed to initialize Hirb"
+end
+
+
 IRB.conf[:AUTO_INDENT] = true
 
-# Get all the methods for an object that aren't basic methods from Object
+# Get all the methods for an object that aren"t basic methods from Object
 class Object
   def local_methods
     (methods - Object.instance_methods).sort
   end
 end
 
-if ENV.include?('RAILS_ENV') && !Object.const_defined?('RAILS_DEFAULT_LOGGER')
-  require 'logger'
+if ENV.include?("RAILS_ENV") && !Object.const_defined?("RAILS_DEFAULT_LOGGER")
+  require "logger"
   RAILS_DEFAULT_LOGGER = Logger.new(STDOUT)
 end
 
@@ -56,14 +63,14 @@ def rl(file_name = nil)
       puts "No recent file to reload"
     end
   else
-    file_name += '.rb' unless file_name =~ /\.rb/
+    file_name += ".rb" unless file_name =~ /\.rb/
     @recent = file_name
     load "#{file_name}"
   end
 end
 
 def copy(str)
-  IO.popen('pbcopy', 'w') { |f| f << str.to_s }
+  IO.popen("pbcopy", "w") { |f| f << str.to_s }
 end
 
 def paste
