@@ -21,7 +21,7 @@ end
 begin
   require "looksee/shortcuts"
 rescue LoadError
-  puts "Failed to initialize Hirb"
+  puts "Failed to initialize Looksee"
 end
 
 
