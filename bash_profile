@@ -37,12 +37,18 @@ alias rtu='rake test:units --trace'
 
 alias migrate='rake db:migrate db:test:prepare'
 alias remigrate='rake db:migrate && rake db:migrate:redo && rake db:schema:dump db:test:prepare'
-alias gadd='git add -u && git add . && git status'
 alias rdr='rake db:rollback'
 alias rout='rake routes'
 alias mrout='rake routes | mate'
 
-alias cdd='cap dev:deploy'
+alias dep='cap deploy'
+
+# Git
+alias gadd='git add -u && git add . && git status'
+alias git-wtf='~/.git-wtf'
+alias git-publish-branch='~/.git-publish-branch'
+alias git-rank-contributors='~/.git-rank-contributors'
+alias git-show-merges='~/.git-show-merges'
 
 # system #
 alias home='cd ~'
