@@ -3,6 +3,7 @@ export PATH="/usr/local/bin:/usr/local/sbin:/opt/local/bin:/opt/local/sbin:/opt/
 export MANPATH="/opt/local/share/man:$MANPATH"
 export EDITOR='mate -w'
 export LANG="en_US.UTF-8"
+export CDPATH=".:~:~/projects/spix:~/projects/personal"
 
 export CLICOLOR=1
 export TERM=xterm-color
@@ -86,7 +87,6 @@ alias startrabbit='sudo -H -u rabbitmq rabbitmq-server'
 # PostgreSQL #
 alias startpostgres='sudo -H -u postgres /opt/local/lib/postgresql83/bin/pg_ctl -D /opt/local/var/db/postgresql83/defaultdb start'
 alias stoppostgres='sudo -H -u postgres /opt/local/lib/postgresql83/bin/pg_ctl -D /opt/local/var/db/postgresql83/defaultdb stop'
-
 
 ### End Aliases ###
 
