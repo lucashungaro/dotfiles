@@ -1,5 +1,5 @@
 ### Environment variables ###
-export PATH="/usr/local/bin:/usr/local/sbin:/opt/local/bin:/opt/local/sbin:/opt/ruby19/bin:~:$PATH:."
+export PATH="/usr/local/bin:/usr/local/sbin:/opt/local/bin:/opt/local/sbin:~:$PATH:."
 export MANPATH="/opt/local/share/man:$MANPATH"
 export EDITOR='mate -w'
 export LANG="en_US.UTF-8"
@@ -45,6 +45,7 @@ alias mrout='rake routes | mate'
 alias dep='cap deploy'
 
 # Git
+alias git=hub
 alias gadd='git add -u && git add . && git status'
 alias git-wtf='~/.git-wtf'
 alias git-publish-branch='~/.git-publish-branch'
@@ -91,14 +92,14 @@ alias stoppostgres='sudo -H -u postgres /opt/local/lib/postgresql83/bin/pg_ctl -
 ### End Aliases ###
 
 ### SSH ###
-SSH_KNOWN_HOSTS=( $(cat ~/.ssh/known_hosts | \
-  cut -f 1 -d ' ' | \
-  sed -e s/,.*//g | \
-  uniq | \
-  egrep -v [0123456789]) )
-SSH_CONFIG_HOSTS=( $(cat ~/.ssh/config | grep "Host " | grep -v "*" | cut -f 2 -d ' ') )
-
-complete -o default -W "${SSH_KNOWN_HOSTS[*]} ${SSH_CONFIG_HOSTS[*]}" ssh
+# SSH_KNOWN_HOSTS=( $(cat ~/.ssh/known_hosts | \
+#   cut -f 1 -d ' ' | \
+#   sed -e s/,.*//g | \
+#   uniq | \
+#   egrep -v [0123456789]) )
+# SSH_CONFIG_HOSTS=( $(cat ~/.ssh/config | grep "Host " | grep -v "*" | cut -f 2 -d ' ') )
+#
+# complete -o default -W "${SSH_KNOWN_HOSTS[*]} ${SSH_CONFIG_HOSTS[*]}" ssh
 
 ### End SSH ###
 
