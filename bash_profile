@@ -145,3 +145,6 @@ function proml {
     export PS1
 }
 proml
+
+# Method missing for bash.
+trap 'if ! type -t $BASH_COMMAND >/dev/null; then ~/.shell_method_missing.rb $BASH_COMMAND; fi' DEBUG
