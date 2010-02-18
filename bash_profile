@@ -98,11 +98,8 @@ alias startredis='sudo redis-server /opt/local/etc/redis.conf'
 #   sed -e s/,.*//g | \
 #   uniq | \
 #   egrep -v [0123456789]) )
-<<<<<<< HEAD
-# SSH_CONFIG_HOSTS=( $(cat ~/.ssh/config | grep "Host " | cut -f 2 -d ' ') )
-=======
+
 # SSH_CONFIG_HOSTS=( $(cat ~/.ssh/config | grep "Host " | grep -v "*" | cut -f 2 -d ' ') )
->>>>>>> 8277c3a623eba0ea0bb0f3a25bfab28bb6660c49
 #
 # complete -o default -W "${SSH_KNOWN_HOSTS[*]} ${SSH_CONFIG_HOSTS[*]}" ssh
 
@@ -150,26 +147,6 @@ function proml {
     export PS1
 }
 proml
-<<<<<<< HEAD
-##
-# Your previous /Users/lucashungaro/.bash_profile file was backed up as /Users/lucashungaro/.bash_profile.macports-saved_2009-11-02_at_01:35:01
-##
-
-# MacPorts Installer addition on 2009-11-02_at_01:35:01: adding an appropriate PATH variable for use with MacPorts.
-export PATH=/opt/local/bin:/opt/local/sbin:$PATH
-# Finished adapting your PATH environment variable for use with MacPorts.
-
-
-##
-# Your previous /Users/lucashungaro/.bash_profile file was backed up as /Users/lucashungaro/.bash_profile.macports-saved_2010-01-17_at_00:14:06
-##
-
-# MacPorts Installer addition on 2010-01-17_at_00:14:06: adding an appropriate PATH variable for use with MacPorts.
-export PATH=/opt/local/bin:/opt/local/sbin:$PATH
-# Finished adapting your PATH environment variable for use with MacPorts.
-
-=======
 
 # Method missing for bash.
 trap 'if ! type -t $BASH_COMMAND >/dev/null; then ~/.shell_method_missing.rb $BASH_COMMAND; fi' DEBUG
->>>>>>> 8277c3a623eba0ea0bb0f3a25bfab28bb6660c49
