@@ -1,5 +1,5 @@
 ### Environment variables ###
-export PATH="/usr/local/bin:/usr/local/sbin:/opt/local/bin:/opt/local/sbin:/opt/ruby19/bin:~:$PATH:."
+export PATH="/usr/local/bin:/usr/local/sbin:/opt/local/bin:/opt/local/sbin:/opt/ruby19/bin:/usr/local/mysql/bin:~:$PATH:."
 export MANPATH="/opt/local/share/man:$MANPATH"
 export EDITOR='mate -w'
 export LANG="en_US.UTF-8"
@@ -91,14 +91,14 @@ alias stoppostgres='sudo -H -u postgres /opt/local/lib/postgresql83/bin/pg_ctl -
 ### End Aliases ###
 
 ### SSH ###
-SSH_KNOWN_HOSTS=( $(cat ~/.ssh/known_hosts | \
-  cut -f 1 -d ' ' | \
-  sed -e s/,.*//g | \
-  uniq | \
-  egrep -v [0123456789]) )
-SSH_CONFIG_HOSTS=( $(cat ~/.ssh/config | grep "Host " | grep -v "*" | cut -f 2 -d ' ') )
-
-complete -o default -W "${SSH_KNOWN_HOSTS[*]} ${SSH_CONFIG_HOSTS[*]}" ssh
+# SSH_KNOWN_HOSTS=( $(cat ~/.ssh/known_hosts | \
+#   cut -f 1 -d ' ' | \
+#   sed -e s/,.*//g | \
+#   uniq | \
+#   egrep -v [0123456789]) )
+# SSH_CONFIG_HOSTS=( $(cat ~/.ssh/config | grep "Host " | cut -f 2 -d ' ') )
+#
+# complete -o default -W "${SSH_KNOWN_HOSTS[*]} ${SSH_CONFIG_HOSTS[*]}" ssh
 
 ### End SSH ###
 
@@ -144,3 +144,20 @@ function proml {
     export PS1
 }
 proml
+##
+# Your previous /Users/lucashungaro/.bash_profile file was backed up as /Users/lucashungaro/.bash_profile.macports-saved_2009-11-02_at_01:35:01
+##
+
+# MacPorts Installer addition on 2009-11-02_at_01:35:01: adding an appropriate PATH variable for use with MacPorts.
+export PATH=/opt/local/bin:/opt/local/sbin:$PATH
+# Finished adapting your PATH environment variable for use with MacPorts.
+
+
+##
+# Your previous /Users/lucashungaro/.bash_profile file was backed up as /Users/lucashungaro/.bash_profile.macports-saved_2010-01-17_at_00:14:06
+##
+
+# MacPorts Installer addition on 2010-01-17_at_00:14:06: adding an appropriate PATH variable for use with MacPorts.
+export PATH=/opt/local/bin:/opt/local/sbin:$PATH
+# Finished adapting your PATH environment variable for use with MacPorts.
+

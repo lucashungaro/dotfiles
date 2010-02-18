@@ -19,3 +19,5 @@
   whitespace = nowarn
 [push]
   default = current
+[branch]
+  autosetuprebase = always
