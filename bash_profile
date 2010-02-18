@@ -1,5 +1,5 @@
 ### Environment variables ###
-export PATH="/usr/local/bin:/usr/local/sbin:/opt/local/bin:/opt/local/sbin:/opt/ruby19/bin:/usr/local/mysql/bin:~:$PATH:."
+export PATH="/usr/local/bin:/usr/local/sbin:/opt/local/bin:/opt/local/sbin:/usr/local/mysql/bin:~:$PATH:."
 export MANPATH="/opt/local/share/man:$MANPATH"
 export EDITOR='mate -w'
 export LANG="en_US.UTF-8"
@@ -8,6 +8,8 @@ export CDPATH=".:~:~/projects/spix:~/projects/personal"
 export CLICOLOR=1
 export TERM=xterm-color
 export LSCOLORS=DxGxcxdxCxegedabagacad
+
+export JEWELER_OPTS="--rspec --gemcutter"
 
 ### Aliases ###
 
@@ -45,6 +47,7 @@ alias mrout='rake routes | mate'
 alias dep='cap deploy'
 
 # Git
+alias git=hub
 alias gadd='git add -u && git add . && git status'
 alias git-wtf='~/.git-wtf'
 alias git-publish-branch='~/.git-publish-branch'
@@ -84,9 +87,8 @@ alias unpair='sh ~/.unpair'
 # RabbitMQ #
 alias startrabbit='sudo -H -u rabbitmq rabbitmq-server'
 
-# PostgreSQL #
-alias startpostgres='sudo -H -u postgres /opt/local/lib/postgresql83/bin/pg_ctl -D /opt/local/var/db/postgresql83/defaultdb start'
-alias stoppostgres='sudo -H -u postgres /opt/local/lib/postgresql83/bin/pg_ctl -D /opt/local/var/db/postgresql83/defaultdb stop'
+# Redis #
+alias startredis='sudo redis-server /opt/local/etc/redis.conf'
 
 ### End Aliases ###
 
@@ -96,7 +98,11 @@ alias stoppostgres='sudo -H -u postgres /opt/local/lib/postgresql83/bin/pg_ctl -
 #   sed -e s/,.*//g | \
 #   uniq | \
 #   egrep -v [0123456789]) )
+<<<<<<< HEAD
 # SSH_CONFIG_HOSTS=( $(cat ~/.ssh/config | grep "Host " | cut -f 2 -d ' ') )
+=======
+# SSH_CONFIG_HOSTS=( $(cat ~/.ssh/config | grep "Host " | grep -v "*" | cut -f 2 -d ' ') )
+>>>>>>> 8277c3a623eba0ea0bb0f3a25bfab28bb6660c49
 #
 # complete -o default -W "${SSH_KNOWN_HOSTS[*]} ${SSH_CONFIG_HOSTS[*]}" ssh
 
@@ -144,6 +150,7 @@ function proml {
     export PS1
 }
 proml
+<<<<<<< HEAD
 ##
 # Your previous /Users/lucashungaro/.bash_profile file was backed up as /Users/lucashungaro/.bash_profile.macports-saved_2009-11-02_at_01:35:01
 ##
@@ -161,3 +168,8 @@ export PATH=/opt/local/bin:/opt/local/sbin:$PATH
 export PATH=/opt/local/bin:/opt/local/sbin:$PATH
 # Finished adapting your PATH environment variable for use with MacPorts.
 
+=======
+
+# Method missing for bash.
+trap 'if ! type -t $BASH_COMMAND >/dev/null; then ~/.shell_method_missing.rb $BASH_COMMAND; fi' DEBUG
+>>>>>>> 8277c3a623eba0ea0bb0f3a25bfab28bb6660c49

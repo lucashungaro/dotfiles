@@ -21,3 +21,5 @@
   default = current
 [branch]
   autosetuprebase = always
+[github]
+  user = lucashungaro
