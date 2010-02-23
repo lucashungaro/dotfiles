@@ -6,6 +6,5 @@
 :verbose: true
 rdoc: --inline-source --line-numbers --format=html --template=hanna
 :sources: 
-- http://gemcutter.org
-- http://gems.rubyforge.org/
+- http://rubygems.org
 - http://gems.github.com/
