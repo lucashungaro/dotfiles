@@ -1,4 +1,5 @@
 ### Environment variables ###
+export ARCHFLAGS="-arch x86_64"
 export PATH="/usr/local/bin:/usr/local/sbin:/opt/local/bin:/opt/local/sbin:/usr/local/mysql/bin:~:$PATH:."
 export MANPATH="/opt/local/share/man:$MANPATH"
 export EDITOR='mate -w'
@@ -150,3 +151,7 @@ proml
 
 # Method missing for bash.
 # trap 'if ! type -t $BASH_COMMAND >/dev/null; then ~/.shell_method_missing.rb $BASH_COMMAND; fi' DEBUG
+
+source ~/.gem_completion.sh
+
+if [[ -s /Users/lucashungaro/.rvm/scripts/rvm ]] ; then source /Users/lucashungaro/.rvm/scripts/rvm ; fi
