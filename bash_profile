@@ -1,15 +1,22 @@
 ### Environment variables ###
+export CFLAGS="-arch x86_64 -O2"
 export ARCHFLAGS="-arch x86_64"
+
 export PATH="/usr/local/bin:/usr/local/sbin:/opt/local/bin:/opt/local/sbin:/usr/local/mysql/bin:~:$PATH:."
 export MANPATH="/opt/local/share/man:$MANPATH"
-export EDITOR='mate -w'
-export LANG="en_US.UTF-8"
 export CDPATH=".:~:~/projects/spix:~/projects/personal"
+export LANG="en_US.UTF-8"
 
 export CLICOLOR=1
 export TERM=xterm-color
 export LSCOLORS=DxGxcxdxCxegedabagacad
 
+export HISTCONTROL=ignoredups
+export HISTCONTROL=ignoreboth
+
+export EDITOR='mate -w'
+
+export RUBYOPT=rubygems
 export JEWELER_OPTS="--rspec --gemcutter"
 
 ### Aliases ###

@@ -12,10 +12,9 @@ rescue LoadError
 end
 
 begin
-  require "hirb"
-  Hirb.enable
+  require "ap"
 rescue LoadError
-  puts "Failed to initialize Hirb"
+  puts "Failed to initialize awesome_print"
 end
 
 begin
