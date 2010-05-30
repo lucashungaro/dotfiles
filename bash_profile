@@ -98,6 +98,10 @@ alias startrabbit='sudo -H -u rabbitmq rabbitmq-server'
 # Redis #
 alias startredis='sudo redis-server /opt/local/etc/redis.conf'
 
+# Misc #
+alias speedup='sudo rm -rf /private/var/log/asl/*'
+
+
 ### End Aliases ###
 
 ### SSH ###
