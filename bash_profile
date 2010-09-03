@@ -7,6 +7,10 @@ export MANPATH="/opt/local/share/man:$MANPATH"
 export CDPATH=".:~:~/projects/spix:~/projects/personal"
 export LANG="en_US.UTF-8"
 
+export BUSK_ENV="development"
+export RAILS_ENV="development"
+export BUSK_CRAWLER_CONFIG_PATH="/Users/lucashungaro/"
+
 export CLICOLOR=1
 export TERM=xterm-color
 export LSCOLORS=DxGxcxdxCxegedabagacad
@@ -125,8 +129,8 @@ complete -C gem_autocomplete -o default edit_gem
 complete -C ~/.rake_autocompletion.rb -o default rake
 
 # bash-completion
-if [ -f /opt/local/etc/bash_completion ]; then
-    . /opt/local/etc/bash_completion
+if [ -f `brew --prefix`/etc/bash_completion ]; then
+  . `brew --prefix`/etc/bash_completion
 fi
 
 export GEMDIR=`gem env gemdir`
@@ -165,4 +169,4 @@ proml
 
 source ~/.gem_completion.sh
 
-if [[ -s /Users/lucashungaro/.rvm/scripts/rvm ]] ; then source /Users/lucashungaro/.rvm/scripts/rvm ; fi
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"  # This loads RVM into a shell session.
