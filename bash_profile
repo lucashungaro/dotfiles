@@ -105,6 +105,25 @@ alias startredis='sudo redis-server /opt/local/etc/redis.conf'
 # Misc #
 alias speedup='sudo rm -rf /private/var/log/asl/*'
 
+# Bundler #
+alias be='bundle exec'
+
+bundle_commands=( padrino )
+
+function run_bundler_cmd () {
+    if [ -e ./Gemfile ]; then
+        echo "bundle exec $@"
+        bundle exec $@
+    else
+        echo "$@"
+        $@
+    fi
+}
+
+for cmd in $bundle_commands
+do
+    alias $cmd="run_bundler_cmd $cmd"
+done
 
 ### End Aliases ###
 
