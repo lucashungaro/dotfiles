@@ -4,7 +4,7 @@ export ARCHFLAGS="-arch x86_64"
 
 export PATH="/usr/local/bin:/usr/local/sbin:/opt/local/bin:/opt/local/sbin:/usr/local/mysql/bin:~:$PATH:."
 export MANPATH="/opt/local/share/man:$MANPATH"
-export CDPATH=".:~:~/projects/spix:~/projects/personal"
+export CDPATH=".:~:~/projects/gonow:~/projects/personal"
 export LANG="en_US.UTF-8"
 
 export BUSK_ENV="development"
