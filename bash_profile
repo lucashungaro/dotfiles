@@ -41,7 +41,7 @@ alias gen='./script/generate'
 alias tstart='thin start'
 alias tstop='thin stop'
 
-alias rmate='mate app/ config/ db/ lib/ public/ test/ spec/ stories/ examples/ features/ Capfile *.rb Rakefile README*'
+alias rmate='mate app/ config/ db/ lib/ public/ test/ spec/ stories/ examples/ features/ Capfile *.rb Rakefile README* Gemfile*'
 
 alias rt='rake --trace'
 alias rtf='rake test:functionals --trace'
