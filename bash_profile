@@ -60,7 +60,7 @@ alias dep='cap deploy'
 
 # Git
 alias git=hub
-alias gadd='git add -u && git add . && git status'
+alias gadd='git add -u && git add . && git status -sb'
 alias git-wtf='~/.git-wtf'
 alias git-publish-branch='~/.git-publish-branch'
 alias git-rank-contributors='~/.git-rank-contributors'
