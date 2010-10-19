@@ -2,7 +2,7 @@
   name = Lucas Húngaro
   email = lucashungaro@gmail.com
 [alias]
-  st = status
+  st = status -sb
   co = checkout
   b = branch -a
   ci = commit
