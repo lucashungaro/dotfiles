@@ -1,6 +1,6 @@
 [user]
-  name = Lucas Húngaro
-  email = lucashungaro@gmail.com
+	name = Lucas Húngaro
+	email = lucashungaro@gmail.com
 [alias]
   st = status -sb
   co = checkout
@@ -14,7 +14,7 @@
   status = auto
 [core]
   excludesfile = /Users/lucashungaro/.gitignore
-  editor = mate -w
+  editor = mvim -f
 [apply]
   whitespace = nowarn
 [push]

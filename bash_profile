@@ -18,7 +18,7 @@ export LSCOLORS=DxGxcxdxCxegedabagacad
 export HISTCONTROL=ignoredups
 export HISTCONTROL=ignoreboth
 
-export EDITOR='mate -w'
+export EDITOR='mvim -f'
 
 export RUBYOPT=rubygems
 export JEWELER_OPTS="--rspec --gemcutter"
