@@ -18,7 +18,7 @@ export LSCOLORS=DxGxcxdxCxegedabagacad
 export HISTCONTROL=ignoredups
 export HISTCONTROL=ignoreboth
 
-export EDITOR='mvim -f'
+export EDITOR='/Applications/Emacs.app/Contents/MacOS/bin/emacsclient'
 
 export RUBYOPT=rubygems
 export JEWELER_OPTS="--rspec --gemcutter"
@@ -42,6 +42,7 @@ alias tstart='thin start'
 alias tstop='thin stop'
 
 alias rmate='mate app/ config/ db/ lib/ public/ test/ spec/ stories/ examples/ features/ Capfile *.rb Rakefile README* Gemfile*'
+alias em='/Applications/Emacs.app/Contents/MacOS/bin/emacsclient'
 
 alias rt='rake --trace'
 alias rtf='rake test:functionals --trace'
