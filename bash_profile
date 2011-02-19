@@ -18,7 +18,7 @@ export LSCOLORS=DxGxcxdxCxegedabagacad
 export HISTCONTROL=ignoredups
 export HISTCONTROL=ignoreboth
 
-export EDITOR='/Applications/Emacs.app/Contents/MacOS/bin/emacsclient'
+export EDITOR='mate -w'
 
 export RUBYOPT=rubygems
 export JEWELER_OPTS="--rspec --gemcutter"
@@ -49,6 +49,7 @@ alias rtf='rake test:functionals --trace'
 alias rti='rake test:integration --trace'
 alias rtl='rake test:lib --trace'
 alias rtp='rake test:plugins --trace'
+alias rts='rake test:services --trace'
 alias rtu='rake test:units --trace'
 
 alias migrate='rake db:migrate db:test:prepare'
@@ -90,41 +91,15 @@ alias tm_update_bundles='sh ~/.update_tmbundles.sh'
 alias tm_reload_bundles="osascript -e 'tell app \"TextMate\" to reload bundles'"
 
 # Rubygems-related
-alias unmerb='sh ~/.uninstall_merb.sh'
-alias gems='cd /Library/Ruby/Gems/1.8/gems'
+alias gems='cd $GEM_HOME'
+alias edit_gem="~/.edit_gem"
 
 # Pair programming
 alias pair='sh ~/.pair'
 alias unpair='sh ~/.unpair'
 
-# RabbitMQ #
-alias startrabbit='sudo -H -u rabbitmq rabbitmq-server'
-
-# Redis #
-alias startredis='sudo redis-server /opt/local/etc/redis.conf'
-
 # Misc #
 alias speedup='sudo rm -rf /private/var/log/asl/*'
-
-# Bundler #
-alias be='bundle exec'
-
-bundle_commands=( padrino )
-
-function run_bundler_cmd () {
-    if [ -e ./Gemfile ]; then
-        echo "bundle exec $@"
-        bundle exec $@
-    else
-        echo "$@"
-        $@
-    fi
-}
-
-for cmd in $bundle_commands
-do
-    alias $cmd="run_bundler_cmd $cmd"
-done
 
 ### End Aliases ###
 
@@ -140,10 +115,6 @@ done
 # complete -o default -W "${SSH_KNOWN_HOSTS[*]} ${SSH_CONFIG_HOSTS[*]}" ssh
 
 ### End SSH ###
-
-### Find_gem and edit_gem options ###
-complete -C gem_autocomplete -o default find_gem
-complete -C gem_autocomplete -o default edit_gem
 
 # Rake autocompletion
 complete -C ~/.rake_autocompletion.rb -o default rake
