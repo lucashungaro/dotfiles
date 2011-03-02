@@ -7,21 +7,16 @@ export MANPATH="/opt/local/share/man:$MANPATH"
 export CDPATH=".:~:~/projects/gonow:~/projects/personal"
 export LANG="en_US.UTF-8"
 
-export BUSK_ENV="development"
 export RAILS_ENV="development"
-export BUSK_CRAWLER_CONFIG_PATH="/Users/lucashungaro/"
 
 export CLICOLOR=1
 export TERM=xterm-color
 export LSCOLORS=DxGxcxdxCxegedabagacad
 
-export HISTCONTROL=ignoredups
-export HISTCONTROL=ignoreboth
-
-export EDITOR='mate -w'
+export EDITOR="mate -w"
 
 export RUBYOPT=rubygems
-export JEWELER_OPTS="--rspec --gemcutter"
+export GEMDIR=`gem env gemdir`
 
 ### Aliases ###
 
@@ -103,43 +98,45 @@ alias speedup='sudo rm -rf /private/var/log/asl/*'
 
 ### End Aliases ###
 
-### SSH ###
-# SSH_KNOWN_HOSTS=( $(cat ~/.ssh/known_hosts | \
-#   cut -f 1 -d ' ' | \
-#   sed -e s/,.*//g | \
-#   uniq | \
-#   egrep -v [0123456789]) )
 
-# SSH_CONFIG_HOSTS=( $(cat ~/.ssh/config | grep "Host " | grep -v "*" | cut -f 2 -d ' ') )
-#
-# complete -o default -W "${SSH_KNOWN_HOSTS[*]} ${SSH_CONFIG_HOSTS[*]}" ssh
-
-### End SSH ###
-
-# Rake autocompletion
-complete -C ~/.rake_autocompletion.rb -o default rake
-
-# bash-completion
+### Completions ###
 if [ -f `brew --prefix`/etc/bash_completion ]; then
   . `brew --prefix`/etc/bash_completion
 fi
 
-export GEMDIR=`gem env gemdir`
+COMPLETION="$HOME/.completion/*.bash"
+for config_file in $COMPLETION
+do
+  source $config_file
+done
 
-gemdoc() {
-  open $GEMDIR/doc/`$(which ls) $GEMDIR/doc | grep $1 | sort | tail -1`/rdoc/index.html
-}
+### End Completions ###
 
-_gemdocomplete() {
-  COMPREPLY=($(compgen -W '$(`which ls` $GEMDIR/doc)' -- ${COMP_WORDS[COMP_CWORD]}))
-  return 0
-}
 
-complete -o default -o nospace -F _gemdocomplete gemdoc
+### Misc Utilities ###
+
+UTILITIES="$HOME/.bash_utilities/*.bash"
+for config_file in $UTILITIES
+do
+  source $config_file
+done
+
+### End Misc Utilities ###
+
+
+# Method missing for bash.
+# trap 'if ! type -t $BASH_COMMAND >/dev/null; then ~/.shell_method_missing.rb $BASH_COMMAND; fi' DEBUG
 
 ### Show current Git branch on prompt ###
 function parse_git_branch {
   git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
+}
+
+function git_status {
+  git_status="$(git status 2> /dev/null)"
+  if [[ ${git_status}} =~ "will be committed" ]]; then
+    echo "*"
+  fi
 }
 
 function proml {
@@ -150,14 +147,10 @@ function proml {
     # Background color codes:
     #   40=black 41=red 42=green 43=yellow 44=blue 45=magenta 46=cyan 47=white
     #   \[\e[01;36m\]
-    PS1='\[\e]0;\w\a\]\n\[\e[01;33m\]\u\[\e[01;37m\]@\[\e[01;36m\]\h\[\e[01;37m\]:\[\e[00;33m\]\w \[\e[0m\]$(parse_git_branch)\n\$ '
+
+    PS1='\[\e]0;\w\a\]\n\[\e[01;33m\]\u\[\e[01;37m\]@\[\e[01;36m\]\h\[\e[01;37m\]:\[\e[00;33m\]\w \[\e[0m\]$(parse_git_branch)\e[01;31m\]$(git_status)\[\e[01;37m\]\n\$ '
     export PS1
 }
 proml
-
-# Method missing for bash.
-# trap 'if ! type -t $BASH_COMMAND >/dev/null; then ~/.shell_method_missing.rb $BASH_COMMAND; fi' DEBUG
-
-source ~/.gem_completion.sh
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"  # This loads RVM into a shell session.

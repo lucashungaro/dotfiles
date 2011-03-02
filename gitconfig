@@ -14,7 +14,7 @@
   status = auto
 [core]
   excludesfile = /Users/lucashungaro/.gitignore
-  editor = /Applications/Emacs.app/Contents/MacOS/bin/emacsclient
+  editor = mate -w
 [apply]
   whitespace = nowarn
 [push]
