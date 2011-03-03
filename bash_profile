@@ -36,7 +36,7 @@ alias gen='./script/generate'
 alias tstart='thin start'
 alias tstop='thin stop'
 
-alias rmate='mate app/ config/ db/ lib/ public/ test/ spec/ stories/ examples/ features/ Capfile *.rb Rakefile README* Gemfile*'
+alias rmate='mate app/ config/ db/ lib/ public/ test/ spec/ stories/ examples/ features/ Capfile *.rb *.ru Rakefile README* Gemfile*'
 alias em='/Applications/Emacs.app/Contents/MacOS/bin/emacsclient'
 
 alias rt='rake --trace'
