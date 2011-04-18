@@ -28,10 +28,9 @@ alias lr='cd ~/projects/personal/learnings/ruby'
 alias dotf='cd ~/projects/personal/dotfiles'
 
 # ruby and rails related #
-alias con='./script/console'
-alias ser='./script/server'
-alias lser='./script/server -e localhost'
-alias gen='./script/generate'
+alias con='rails console'
+alias ser='rails server'
+alias gen='rails generate'
 
 alias tstart='thin start'
 alias tstop='thin stop'
