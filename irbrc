@@ -18,7 +18,7 @@ rescue LoadError
 end
 
 begin
-  require "looksee/shortcuts"
+  require "looksee"
 rescue LoadError
   puts "Failed to initialize Looksee"
 end
