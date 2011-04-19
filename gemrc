@@ -2,6 +2,6 @@
 :verbose: true
 :update_sources: true
 :backtrace: false
-rdoc: --inline-source --line-numbers --format=html --template=hanna
+rdoc: --inline-source --line-numbers --format=html
 :bulk_threshold: 1000
 :benchmark: false
