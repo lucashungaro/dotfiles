@@ -7,8 +7,6 @@ export MANPATH="/opt/local/share/man:$MANPATH"
 export CDPATH=".:~:~/projects/gonow:~/projects/personal"
 export LANG="en_US.UTF-8"
 
-export RAILS_ENV="development"
-
 export CLICOLOR=1
 export TERM=xterm-color
 export LSCOLORS=DxGxcxdxCxegedabagacad
