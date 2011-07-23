@@ -3,6 +3,11 @@ require "irb/completion"
 require "rubygems"
 require "pp"
 
+# Add all gems in the global gemset to the $LOAD_PATH so they can be used in rails3 console with Bundler
+if defined?(::Bundler)
+  $LOAD_PATH.concat Dir.glob("#{ENV['rvm_ruby_global_gems_path']}/gems/*/lib")
+end
+
 begin
   require "wirble"
   Wirble.init
