@@ -1,6 +1,7 @@
 ### Environment variables ###
 export CFLAGS="-arch x86_64 -O2"
 export ARCHFLAGS="-arch x86_64"
+export CC="/usr/bin/gcc-4.2"
 
 export PATH="/usr/local/bin:/usr/local/sbin:/opt/local/bin:/opt/local/sbin:/usr/local/mysql/bin:~:$PATH:."
 export MANPATH="/opt/local/share/man:$MANPATH"
