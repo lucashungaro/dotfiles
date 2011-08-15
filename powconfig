@@ -1,0 +1,2 @@
+export POW_TIMEOUT=300000
+export PATH="/Users/lucashungaro/.rbenv/shims:/Users/lucashungaro/.rbenv/bin:$PATH

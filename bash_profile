@@ -3,19 +3,18 @@ export CFLAGS="-arch x86_64 -O2"
 export ARCHFLAGS="-arch x86_64"
 export CC="/usr/bin/gcc-4.2"
 
-export PATH="/usr/local/bin:/usr/local/sbin:/opt/local/bin:/opt/local/sbin:/usr/local/mysql/bin:~:$PATH:."
+export PATH="/usr/local/bin:/usr/local/sbin:/opt/local/bin:/opt/local/sbin:/usr/local/mysql/bin:$HOME/.rbenv/bin:$HOME/.rbenv/shims:~:$PATH:."
 export MANPATH="/opt/local/share/man:$MANPATH"
 export CDPATH=".:~:~/projects/gonow:~/projects/personal"
 export LANG="en_US.UTF-8"
+
+export NODE_PATH="/usr/local/lib/node"
 
 export CLICOLOR=1
 export TERM=xterm-color
 export LSCOLORS=DxGxcxdxCxegedabagacad
 
 export EDITOR="mate -w"
-
-export RUBYOPT=rubygems
-export GEMDIR=`gem env gemdir`
 
 ### Aliases ###
 
@@ -59,6 +58,9 @@ alias bi="b install --path vendor"
 alias bu="b update"
 alias be="b exec"
 alias binit="bi && b package && echo 'vendor/ruby' >> .gitignore"
+
+# rbevn
+alias rb="rbenv"
 
 # Git
 alias git=hub
@@ -165,4 +167,4 @@ custom_prompt () {
 
 PROMPT_COMMAND=custom_prompt
 
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"  # This loads RVM into a shell session.
+eval "$(rbenv init -)"
