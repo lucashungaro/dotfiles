@@ -107,6 +107,9 @@ alias speedup='sudo rm -rf /private/var/log/asl/*'
 alias postgresql.start='pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start'
 alias postgresql.stop='pg_ctl -D /usr/local/var/postgres stop -s -m fast'
 
+# Redis #
+alias redis.start='redis-server /usr/local/etc/redis.conf'
+
 ### End Aliases ###
 
 
