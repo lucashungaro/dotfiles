@@ -19,38 +19,32 @@ export EDITOR="mate -w"
 ### Aliases ###
 
 # projects #
-alias pra='cd ~/projects/personal/pratico'
-alias sand='cd ~/projects/sandbox'
-alias le='cd ~/projects/personal/learnings/erlang'
-alias lr='cd ~/projects/personal/learnings/ruby'
-alias dotf='cd ~/projects/personal/dotfiles'
+alias pra="cd ~/projects/personal/pratico"
+alias sand="cd ~/projects/sandbox"
+alias le="cd ~/projects/personal/learnings/erlang"
+alias lr="cd ~/projects/personal/learnings/ruby"
+alias dotf="cd ~/projects/personal/dotfiles"
 
 # ruby and rails related #
-alias con='rails console'
-alias ser='rails server'
-alias gen='rails generate'
+alias con="rails console"
+alias ser="rails server"
+alias gen="rails generate"
 
-alias tstart='thin start'
-alias tstop='thin stop'
+alias rmate="mate app/ config/ db/ lib/ public/ test/ spec/ stories/ examples/ features/ Capfile *.rb *.ru Rakefile README* Gemfile*"
+alias em="/Applications/Emacs.app/Contents/MacOS/bin/emacsclient"
+alias v="mvim ."
 
-alias rmate='mate app/ config/ db/ lib/ public/ test/ spec/ stories/ examples/ features/ Capfile *.rb *.ru Rakefile README* Gemfile*'
-alias em='/Applications/Emacs.app/Contents/MacOS/bin/emacsclient'
+alias rt="be rake --trace"
+alias rsp="be rake spec"
+alias r="be rspec"
 
-alias rt='rake --trace'
-alias rtf='rake test:functionals --trace'
-alias rti='rake test:integration --trace'
-alias rtl='rake test:lib --trace'
-alias rtp='rake test:plugins --trace'
-alias rts='rake test:services --trace'
-alias rtu='rake test:units --trace'
+alias migrate="be rake db:migrate db:test:prepare"
+alias remigrate="be rake db:migrate && rake db:migrate:redo && rake db:schema:dump db:test:prepare"
+alias rdr="be rake db:rollback"
+alias rout="be rake routes"
+alias mrout="be rake routes | mate"
 
-alias migrate='rake db:migrate db:test:prepare'
-alias remigrate='rake db:migrate && rake db:migrate:redo && rake db:schema:dump db:test:prepare'
-alias rdr='rake db:rollback'
-alias rout='rake routes'
-alias mrout='rake routes | mate'
-
-alias dep='cap deploy'
+alias dep="be cap deploy"
 
 # Bundler
 alias b="bundle"
@@ -64,51 +58,51 @@ alias rb="rbenv"
 
 # Git
 alias git=hub
-alias gadd='git add -u && git add . && git status -sb'
-alias git-wtf='~/.git-wtf'
-alias git-publish-branch='~/.git-publish-branch'
-alias git-rank-contributors='~/.git-rank-contributors'
-alias git-show-merges='~/.git-show-merges'
+alias gadd="git add -u && git add . && git status -sb"
+alias git-wtf="~/.git-wtf"
+alias git-publish-branch="~/.git-publish-branch"
+alias git-rank-contributors="~/.git-rank-contributors"
+alias git-show-merges="~/.git-show-merges"
 
 # system #
-alias home='cd ~'
-alias l='ls -lah'
-alias tf='tail -f'
-alias mb='mate ~/.bash_profile'
-alias rehash='source ~/.bash_profile'
-alias clone='~/.terminal_clone_tab.sh'
+alias home="cd ~"
+alias l="ls -lah"
+alias tf="tail -f"
+alias mb="mate ~/.bash_profile"
+alias rehash="source ~/.bash_profile"
+alias clone="~/.terminal_clone_tab.sh"
 
-alias cp='cp -i'
-alias mv='mv -i'
-alias rm='rm -i'
+alias cp="cp -i"
+alias mv="mv -i"
+alias rm="rm -i"
 
-alias df='df -h'
-alias du='du -h'
+alias df="df -h"
+alias du="du -h"
 
-alias less='less -r'                          # raw control characters
-alias grep='egrep --color'                    # show differences in colour
+alias less="less -r"                          # raw control characters
+alias grep="egrep --color"                    # show differences in colour
 
 # textmate #
-alias tm_update_bundles='sh ~/.update_tmbundles.sh'
+alias tm_update_bundles="sh ~/.update_tmbundles.sh"
 alias tm_reload_bundles="osascript -e 'tell app \"TextMate\" to reload bundles'"
 
 # Rubygems-related
-alias gems='cd $GEM_HOME'
+alias gems="cd $GEM_HOME"
 alias edit_gem="~/.edit_gem"
 
 # Pair programming
-alias pair='sh ~/.pair'
-alias unpair='sh ~/.unpair'
+alias pair="sh ~/.pair"
+alias unpair="sh ~/.unpair"
 
 # Misc #
-alias speedup='sudo rm -rf /private/var/log/asl/*'
+alias speedup="sudo rm -rf /private/var/log/asl/*"
 
 # PostgreSQL #
-alias postgresql.start='pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start'
-alias postgresql.stop='pg_ctl -D /usr/local/var/postgres stop -s -m fast'
+alias postgresql.start="pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start"
+alias postgresql.stop="pg_ctl -D /usr/local/var/postgres stop -s -m fast"
 
 # Redis #
-alias redis.start='redis-server /usr/local/etc/redis.conf'
+alias redis.start="redis-server /usr/local/etc/redis.conf"
 
 ### End Aliases ###
 
