@@ -32,6 +32,17 @@ rescue LoadError
   puts "Failed to initialize Looksee"
 end
 
+begin
+  require "what_methods"
+rescue LoadError
+  puts "Failed to initialize what_methods"
+end
+
+begin
+  require "map_by_method"
+rescue LoadError
+  puts "Failed to initialize map_by_method"
+end
 
 IRB.conf[:AUTO_INDENT] = true
 
