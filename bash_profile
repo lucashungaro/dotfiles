@@ -3,7 +3,7 @@ export CFLAGS="-arch x86_64 -O2"
 export ARCHFLAGS="-arch x86_64"
 export CC="/usr/bin/gcc-4.2"
 
-export PATH="/usr/local/bin:/usr/local/sbin:/opt/local/bin:/opt/local/sbin:/usr/local/mysql/bin:$HOME/.rbenv/bin:$HOME/.rbenv/shims:~:$PATH:."
+export PATH="/usr/local/bin:/usr/local/sbin:/opt/local/bin:/opt/local/sbin:/usr/local/mysql/bin:~:$PATH:."
 export MANPATH="/opt/local/share/man:$MANPATH"
 export CDPATH=".:~:~/projects/gonow:~/projects/personal"
 export LANG="en_US.UTF-8"
@@ -53,9 +53,6 @@ alias bu="b update"
 alias be="b exec"
 alias binit="bi && b package && echo 'vendor/ruby' >> .gitignore"
 
-# rbevn
-alias rb="rbenv"
-
 # Git
 alias git=hub
 alias gadd="git add -u && git add . && git status -sb"
@@ -103,6 +100,9 @@ alias postgresql.stop="pg_ctl -D /usr/local/var/postgres stop -s -m fast"
 
 # Redis #
 alias redis.start="redis-server /usr/local/etc/redis.conf"
+
+# General #
+alias lserv="open http://localhost:8000 && python -m SimpleHTTPServer"
 
 ### End Aliases ###
 
@@ -163,5 +163,3 @@ custom_prompt () {
 }
 
 PROMPT_COMMAND=custom_prompt
-
-eval "$(rbenv init -)"

@@ -1,4 +1,4 @@
 #!/bin/sh
 
 git config user.name "Lucas Húngaro"
-git config user.email "lhungaro@webcointernet.com"
+git config user.email "lucashungaro@gmail.com"
