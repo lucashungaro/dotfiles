@@ -8,7 +8,7 @@ export MANPATH="/opt/local/share/man:$MANPATH"
 export CDPATH=".:~:~/projects/gonow:~/projects/personal"
 export LANG="en_US.UTF-8"
 
-export NODE_PATH="/usr/local/lib/node"
+export NODE_PATH="/usr/local/lib/node:/usr/local/lib/node_modules"
 
 export CLICOLOR=1
 export TERM=xterm-color
@@ -32,7 +32,7 @@ alias gen="rails generate"
 
 alias rmate="mate app/ config/ db/ lib/ public/ test/ spec/ stories/ examples/ features/ Capfile *.rb *.ru Rakefile README* Gemfile*"
 alias em="/Applications/Emacs.app/Contents/MacOS/bin/emacsclient"
-alias v="mvim ."
+alias vim="/Applications/MacVim.app/Contents/MacOS/Vim"
 
 alias rt="be rake --trace"
 alias rsp="be rake spec"
