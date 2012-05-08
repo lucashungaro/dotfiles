@@ -34,9 +34,7 @@ alias rmate="mate app/ config/ db/ lib/ public/ test/ spec/ stories/ examples/ f
 alias em="/Applications/Emacs.app/Contents/MacOS/bin/emacsclient"
 alias vim="/Applications/MacVim.app/Contents/MacOS/Vim"
 
-alias rt="be rake --trace"
-alias rsp="be rake spec"
-alias r="be rspec"
+alias r="be rspec --no-drb"
 
 alias migrate="be rake db:migrate db:test:prepare"
 alias remigrate="be rake db:migrate && rake db:migrate:redo && rake db:schema:dump db:test:prepare"
