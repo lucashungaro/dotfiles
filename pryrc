@@ -21,7 +21,7 @@ if defined?(Rails)
     require "rails/console/app"
     require "rails/console/helpers"
 
-    include Rails::ConsoleMethods
+    TOPLEVEL_BINDING.eval("self").extend ::Rails::ConsoleMethods
   rescue LoadError => e
     require "console_app"
     require "console_with_helpers"
