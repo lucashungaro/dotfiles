@@ -5,7 +5,7 @@ export CC="/usr/bin/gcc-4.2"
 
 export PATH="/usr/local/bin:/usr/local/sbin:/opt/local/bin:/opt/local/sbin:/usr/local/mysql/bin:~:$PATH:."
 export MANPATH="/opt/local/share/man:$MANPATH"
-export CDPATH=".:~:~/projects/gonow:~/projects/personal"
+export CDPATH=".:~:~/projects/personal:~/projects/sandbox"
 export LANG="en_US.UTF-8"
 
 export NODE_PATH="/usr/local/lib/node:/usr/local/lib/node_modules"
@@ -18,17 +18,8 @@ export EDITOR="mate -w"
 
 ### Aliases ###
 
-# projects #
-alias pra="cd ~/projects/personal/pratico"
-alias sand="cd ~/projects/sandbox"
-alias le="cd ~/projects/personal/learnings/erlang"
-alias lr="cd ~/projects/personal/learnings/ruby"
-alias dotf="cd ~/projects/personal/dotfiles"
-
-# ruby and rails related #
-alias con="rails console"
-alias ser="rails server"
-alias gen="rails generate"
+# Enable aliases to be sudo’ed
+alias sudo="sudo "
 
 alias rmate="mate app/ config/ db/ lib/ public/ test/ spec/ stories/ examples/ features/ Capfile *.rb *.ru Rakefile README* Gemfile*"
 alias em="/Applications/Emacs.app/Contents/MacOS/bin/emacsclient"
@@ -38,9 +29,7 @@ alias r="be rspec --no-drb"
 
 alias migrate="be rake db:migrate db:test:prepare"
 alias remigrate="be rake db:migrate && rake db:migrate:redo && rake db:schema:dump db:test:prepare"
-alias rdr="be rake db:rollback"
 alias rout="be rake routes"
-alias mrout="be rake routes | mate"
 
 alias dep="be cap deploy"
 
@@ -52,18 +41,11 @@ alias be="b exec"
 alias binit="bi && b package && echo 'vendor/ruby' >> .gitignore"
 
 # Git
-alias git=hub
 alias gadd="git add -u && git add . && git status -sb"
-alias git-wtf="~/.git-wtf"
-alias git-publish-branch="~/.git-publish-branch"
-alias git-rank-contributors="~/.git-rank-contributors"
-alias git-show-merges="~/.git-show-merges"
 
 # system #
-alias home="cd ~"
 alias l="ls -lah"
 alias tf="tail -f"
-alias mb="mate ~/.bash_profile"
 alias rehash="source ~/.bash_profile"
 alias clone="~/.terminal_clone_tab.sh"
 
@@ -77,6 +59,24 @@ alias du="du -h"
 alias less="less -r"                          # raw control characters
 alias grep="egrep --color"                    # show differences in colour
 
+# Get OS X Software Updates, update Homebrew itself, and upgrade installed Homebrew packages
+alias update="sudo softwareupdate -i -a; brew update; brew upgrade"
+
+# Speed-up Terminal load time by clearing system logs
+alias speedup="sudo rm -rf /private/var/log/asl/*"
+
+# Empty the Trash on all mounted volumes and the main HDD
+# Also, clear Apple’s System Logs to improve shell startup speed
+alias emptytrash="sudo rm -rfv /Volumes/*/.Trashes; sudo rm -rfv ~/.Trash; speedup"
+
+# IP addresses
+alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
+alias localip="ipconfig getifaddr en1"
+alias ips="ifconfig -a | perl -nle'/(\d+\.\d+\.\d+\.\d+)/ && print $1'"
+
+# Enhanced WHOIS lookups
+alias whois="whois -h whois-servers.net"
+
 # textmate #
 alias tm_update_bundles="sh ~/.update_tmbundles.sh"
 alias tm_reload_bundles="osascript -e 'tell app \"TextMate\" to reload bundles'"
@@ -88,9 +88,6 @@ alias edit_gem="~/.edit_gem"
 # Pair programming
 alias pair="sh ~/.pair"
 alias unpair="sh ~/.unpair"
-
-# Misc #
-alias speedup="sudo rm -rf /private/var/log/asl/*"
 
 # PostgreSQL #
 alias postgresql.start="pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start"

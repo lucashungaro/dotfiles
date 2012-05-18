@@ -3,7 +3,7 @@ require 'rake'
 desc "install the dot files into user's home directory"
 task :install do
   replace_all = false
-  @executables = %w(git-publish-branch git-rank-contributors git-show-merges git-wtf edit_gem)
+  @executables = %w(edit_gem)
   Dir['*'].each do |file|
     next if %w(Rakefile README LICENSE).include? file
 
