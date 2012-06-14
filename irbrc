@@ -18,18 +18,6 @@ rescue LoadError
   puts "=> Unable to load awesome_print"
 end
 
-begin
-  require "what_methods"
-rescue LoadError
-  puts "=> Unable to load what_methods"
-end
-
-begin
-  require "map_by_method"
-rescue LoadError
-  puts "=> Unable to load map_by_method"
-end
-
 IRB.conf[:AUTO_INDENT] = true
 
 # Get all the methods for an object that aren't basic methods from Object
