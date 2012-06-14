@@ -12,9 +12,12 @@ Pry.config.exception_handler = proc do |output, exception, _|
   output.puts "from #{exception.backtrace.first}\e[0m"
 end
 
-Pry.commands.alias_command "c", "continue"
-Pry.commands.alias_command "s", "step"
-Pry.commands.alias_command "n", "next"
+if Pry.commands.find {|command| command[0] == "continue"}
+  Pry.commands.alias_command "c", "continue"
+  Pry.commands.alias_command "s", "step"
+  Pry.commands.alias_command "n", "next"
+  Pry.commands.alias_command "f", "finish"
+end
 
 if defined?(Rails)
   begin
