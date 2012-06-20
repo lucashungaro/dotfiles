@@ -1,10 +1,6 @@
 ### Environment variables ###
-export CFLAGS="-arch x86_64 -O2"
-export ARCHFLAGS="-arch x86_64"
-export CC="/usr/bin/gcc-4.2"
 
 export PATH="/usr/local/bin:/usr/local/sbin:/opt/local/bin:/opt/local/sbin:/usr/local/mysql/bin:~:$PATH:."
-export MANPATH="/opt/local/share/man:$MANPATH"
 export CDPATH=".:~:~/projects/personal:~/projects/sandbox"
 export LANG="en_US.UTF-8"
 
@@ -14,16 +10,23 @@ export CLICOLOR=1
 export TERM=xterm-color
 export LSCOLORS=DxGxcxdxCxegedabagacad
 
-export EDITOR="mate -w"
+if [[ $OSTYPE == darwin* ]]; then
+  export CFLAGS="-arch x86_64 -O2"
+  export ARCHFLAGS="-arch x86_64"
+  export CC="/usr/bin/gcc-4.2"
+  export EDITOR="mate -w"
+fi
 
 ### Aliases ###
 
 # Enable aliases to be sudo’ed
 alias sudo="sudo "
 
-alias rmate="mate app/ config/ db/ lib/ public/ test/ spec/ stories/ examples/ features/ Capfile *.rb *.ru Rakefile README* Gemfile*"
-alias em="/Applications/Emacs.app/Contents/MacOS/bin/emacsclient"
-alias vim="/Applications/MacVim.app/Contents/MacOS/Vim"
+if [[ $OSTYPE == darwin* ]]; then
+  alias rmate="mate app/ config/ db/ lib/ public/ test/ spec/ stories/ examples/ features/ Capfile *.rb *.ru Rakefile README* Gemfile*"
+  alias em="/Applications/Emacs.app/Contents/MacOS/bin/emacsclient"
+  alias vim="/Applications/MacVim.app/Contents/MacOS/Vim"
+fi
 
 alias r="be rspec --no-drb"
 
@@ -42,12 +45,19 @@ alias binit="bi && b package && echo 'vendor/ruby' >> .gitignore"
 
 # Git
 alias gadd="git add -u && git add . && git status -sb"
+alias gp="git pull --rebase origin master"
+
+if [[ $OSTYPE == darwin* ]]; then
+  # Screen #
+  alias s="screen -DRe^Xx work"
+  alias t="screen -DRe^Xx yt"
+  export DISPLAY=:5
+fi
 
 # system #
 alias l="ls -lah"
 alias tf="tail -f"
 alias rehash="source ~/.bash_profile"
-alias clone="~/.terminal_clone_tab.sh"
 
 alias cp="cp -i"
 alias mv="mv -i"
@@ -59,27 +69,30 @@ alias du="du -h"
 alias less="less -r"                          # raw control characters
 alias grep="egrep --color"                    # show differences in colour
 
-# Get OS X Software Updates, update Homebrew itself, and upgrade installed Homebrew packages
-alias update="sudo softwareupdate -i -a; brew update; brew upgrade"
 
-# Speed-up Terminal load time by clearing system logs
-alias speedup="sudo rm -rf /private/var/log/asl/*"
+if [[ $OSTYPE == darwin* ]]; then
+  # Get OS X Software Updates, update Homebrew itself, and upgrade installed Homebrew packages
+  alias update="sudo softwareupdate -i -a; brew update; brew upgrade"
 
-# Empty the Trash on all mounted volumes and the main HDD
-# Also, clear Apple’s System Logs to improve shell startup speed
-alias emptytrash="sudo rm -rfv /Volumes/*/.Trashes; sudo rm -rfv ~/.Trash; speedup"
+  # Speed-up Terminal load time by clearing system logs
+  alias speedup="sudo rm -rf /private/var/log/asl/*"
 
-# IP addresses
-alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
-alias localip="ifconfig en0 inet | grep 'inet ' | awk ' { print $2 } '"
-alias ips="ifconfig -a | perl -nle'/(\d+\.\d+\.\d+\.\d+)/ && print $1'"
+  # Empty the Trash on all mounted volumes and the main HDD
+  # Also, clear Apple’s System Logs to improve shell startup speed
+  alias emptytrash="sudo rm -rfv /Volumes/*/.Trashes; sudo rm -rfv ~/.Trash; speedup"
+
+  # IP addresses
+  alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
+  alias localip="ifconfig en0 inet | grep 'inet ' | awk ' { print $2 } '"
+  alias ips="ifconfig -a | perl -nle'/(\d+\.\d+\.\d+\.\d+)/ && print $1'"
+
+  # textmate #
+  alias tm_update_bundles="sh ~/.update_tmbundles.sh"
+  alias tm_reload_bundles="osascript -e 'tell app \"TextMate\" to reload bundles'"
+fi
 
 # Enhanced WHOIS lookups
 alias whois="whois -h whois-servers.net"
-
-# textmate #
-alias tm_update_bundles="sh ~/.update_tmbundles.sh"
-alias tm_reload_bundles="osascript -e 'tell app \"TextMate\" to reload bundles'"
 
 # Rubygems-related
 alias gems="cd $GEM_HOME"
@@ -103,8 +116,10 @@ alias lserv="open http://localhost:8000 && python -m SimpleHTTPServer"
 
 
 ### Completions ###
-if [ -f `brew --prefix`/etc/bash_completion ]; then
-  . `brew --prefix`/etc/bash_completion
+if [[ $OSTYPE == darwin* ]]; then
+  if [ -f `brew --prefix`/etc/bash_completion ]; then
+    . `brew --prefix`/etc/bash_completion
+  fi
 fi
 
 COMPLETION="$HOME/.completion/*.bash"
@@ -158,3 +173,7 @@ custom_prompt () {
 }
 
 PROMPT_COMMAND=custom_prompt
+
+if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
+    . /etc/bash_completion
+fi
