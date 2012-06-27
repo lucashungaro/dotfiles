@@ -47,7 +47,7 @@ alias binit="bi && b package && echo 'vendor/ruby' >> .gitignore"
 alias gadd="git add -u && git add . && git status -sb"
 alias gp="git pull --rebase origin master"
 
-if [[ $OSTYPE == darwin* ]]; then
+if [[ $OSTYPE == *linux* ]]; then
   # Screen #
   alias s="screen -DRe^Xx work"
   alias t="screen -DRe^Xx yt"
