@@ -7,7 +7,7 @@ export LANG="en_US.UTF-8"
 export NODE_PATH="/usr/local/lib/node:/usr/local/lib/node_modules"
 
 export CLICOLOR=1
-export TERM=xterm-color
+export TERM=xterm-256color
 export LSCOLORS=DxGxcxdxCxegedabagacad
 
 if [[ $OSTYPE == darwin* ]]; then

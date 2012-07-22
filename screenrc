@@ -10,3 +10,7 @@ autodetach on # Autodetach session on hangup instead of terminating screen compl
 defscrollback 30000 # Use a 30000-line scrollback buffer
 
 startup_message off
+
+attrcolor b ".I"
+termcapinfo xterm 'Co#256:AB=\E[48;5;%dm:AF=\E[38;5;%dm'
+defbce "on"
