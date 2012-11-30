@@ -34,7 +34,8 @@ alias migrate="be rake db:migrate db:test:prepare"
 alias remigrate="be rake db:migrate && rake db:migrate:redo && rake db:schema:dump db:test:prepare"
 alias rout="be rake routes"
 
-alias dep="be cap deploy"
+alias dep="be rake assets:precompile; gadd ; git commit -m 'Assets precompilation' ; git push production"
+alias dep_staging="be rake assets:precompile; gadd ; git commit -m 'Assets precompilation' ; git push staging"
 
 # Bundler
 alias b="bundle"

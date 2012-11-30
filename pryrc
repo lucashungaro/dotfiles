@@ -1,3 +1,6 @@
+# Copy line to clipboard
+def copy(*args) IO.popen('pbcopy', 'r+') { |clipboard| clipboard.puts args.map(&:inspect) }; end
+
 Pry.config.editor = "mate -w"
 
 Pry.config.prompt = proc do |obj, level, _|
@@ -17,6 +20,7 @@ if Pry.commands.find {|command| command[0] == "continue"}
   Pry.commands.alias_command "s", "step"
   Pry.commands.alias_command "n", "next"
   Pry.commands.alias_command "f", "finish"
+  Pry.commands.alias_command "q", "exit"
 end
 
 if defined?(Rails)
