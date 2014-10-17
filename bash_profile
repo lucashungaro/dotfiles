@@ -1,19 +1,21 @@
 ### Environment variables ###
 
-export PATH="/usr/local/bin:/usr/local/sbin:/opt/local/bin:/opt/local/sbin:/usr/local/mysql/bin:~:$PATH:."
+export PATH="/usr/local/bin:/usr/local/sbin:/opt/local/bin:/opt/local/sbin:/usr/local/share/python:./bin:~:$PATH:."
 export CDPATH=".:~:~/projects/personal:~/projects/sandbox"
 export LANG="en_US.UTF-8"
 
 export NODE_PATH="/usr/local/lib/node:/usr/local/lib/node_modules"
+export DOCKER_HOST=tcp://192.168.59.103:2375
 
 export CLICOLOR=1
 export TERM=xterm-256color
 export LSCOLORS=DxGxcxdxCxegedabagacad
 
+export JRUBY_OPTS="-Xcext.enabled=true"
+
 if [[ $OSTYPE == darwin* ]]; then
   export CFLAGS="-arch x86_64 -O2"
   export ARCHFLAGS="-arch x86_64"
-  export CC="/usr/bin/gcc-4.2"
   export EDITOR="mate -w"
 fi
 
@@ -22,9 +24,13 @@ fi
 # Enable aliases to be sudo’ed
 alias sudo="sudo "
 
+# Easier navigation
+alias ..="cd .."
+alias ...="cd ../.."
+
+alias c="clear"
+
 if [[ $OSTYPE == darwin* ]]; then
-  alias rmate="mate app/ config/ db/ lib/ public/ test/ spec/ stories/ examples/ features/ Capfile *.rb *.ru Rakefile README* Gemfile*"
-  alias em="/Applications/Emacs.app/Contents/MacOS/bin/emacsclient"
   alias vim="/Applications/MacVim.app/Contents/MacOS/Vim"
 fi
 
@@ -33,9 +39,6 @@ alias r="be rspec --no-drb"
 alias migrate="be rake db:migrate db:test:prepare"
 alias remigrate="be rake db:migrate && rake db:migrate:redo && rake db:schema:dump db:test:prepare"
 alias rout="be rake routes"
-
-alias dep="be rake assets:precompile; gadd ; git commit -m 'Assets precompilation' ; git push production"
-alias dep_staging="be rake assets:precompile; gadd ; git commit -m 'Assets precompilation' ; git push staging"
 
 # Bundler
 alias b="bundle"
@@ -46,7 +49,7 @@ alias binit="bi && b package && echo 'vendor/ruby' >> .gitignore"
 
 # Git
 alias gadd="git add -u && git add . && git status -sb"
-alias gp="git pull --rebase origin master"
+alias gpm="git pull --rebase origin master"
 
 if [[ $OSTYPE == *linux* ]]; then
   # Screen #
@@ -178,3 +181,7 @@ PROMPT_COMMAND=custom_prompt
 if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
     . /etc/bash_completion
 fi
+
+source "$HOME/.machine_specific_configs"
+
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
