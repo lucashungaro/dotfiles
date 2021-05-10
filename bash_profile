@@ -4,14 +4,9 @@ export PATH="/usr/local/bin:/usr/local/sbin:/opt/local/bin:/opt/local/sbin:/usr/
 export CDPATH=".:~:~/projects/personal:~/projects/sandbox"
 export LANG="en_US.UTF-8"
 
-export NODE_PATH="/usr/local/lib/node:/usr/local/lib/node_modules"
-export DOCKER_HOST=tcp://192.168.59.103:2375
-
 export CLICOLOR=1
 export TERM=xterm-256color
 export LSCOLORS=DxGxcxdxCxegedabagacad
-
-export JRUBY_OPTS="-Xcext.enabled=true"
 
 if [[ $OSTYPE == darwin* ]]; then
   export CFLAGS="-arch x86_64 -O2"
@@ -34,12 +29,6 @@ if [[ $OSTYPE == darwin* ]]; then
   alias vim="/Applications/MacVim.app/Contents/MacOS/Vim"
 fi
 
-alias r="be rspec --no-drb"
-
-alias migrate="be rake db:migrate db:test:prepare"
-alias remigrate="be rake db:migrate && rake db:migrate:redo && rake db:schema:dump db:test:prepare"
-alias rout="be rake routes"
-
 # Bundler
 alias b="bundle"
 alias bi="b install --path vendor"
@@ -50,13 +39,6 @@ alias binit="bi && b package && echo 'vendor/ruby' >> .gitignore"
 # Git
 alias gadd="git add -u && git add . && git status -sb"
 alias gpm="git pull --rebase origin master"
-
-if [[ $OSTYPE == *linux* ]]; then
-  # Screen #
-  alias s="screen -DRe^Xx work"
-  alias t="screen -DRe^Xx yt"
-  export DISPLAY=:5
-fi
 
 # system #
 alias l="ls -lah"
@@ -98,23 +80,9 @@ fi
 # Enhanced WHOIS lookups
 alias whois="whois -h whois-servers.net"
 
-# Rubygems-related
-alias gems="cd $GEM_HOME"
-alias edit_gem="~/.edit_gem"
-
 # Pair programming
 alias pair="sh ~/.pair"
 alias unpair="sh ~/.unpair"
-
-# PostgreSQL #
-alias postgresql.start="pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start"
-alias postgresql.stop="pg_ctl -D /usr/local/var/postgres stop -s -m fast"
-
-# Redis #
-alias redis.start="redis-server /usr/local/etc/redis.conf"
-
-# General #
-alias lserv="open http://localhost:8000 && python -m SimpleHTTPServer"
 
 ### End Aliases ###
 
@@ -173,7 +141,7 @@ custom_prompt () {
   # Background color codes:
   #   40=black 41=red 42=green 43=yellow 44=blue 45=magenta 46=cyan 47=white
   #   \[\e[01;36m\]
-  PS1='\[\e]0;\w\a\]\n\[\e[01;33m\]\u\[\e[01;37m\]@\[\e[01;36m\]\h\[\e[01;37m\]:\[\e[00;33m\]\w \[\e[0m\]$(parse_git_branch)\e[01;31m\]$(git_status)\[\e[01;37m\]\n\$ '
+  PS1='\[\e]0;\w\a\]\n\[\e[01;33m\]\u\[\e[01;37m\]@\[\e[01;36m\]\h\[\e[01;37m\]:\[\e[00;33m\]\w \[\e[0m\]$(parse_git_branch)\[\e[01;31m\]$(git_status)\[\e[01;37m\]\n\$ '
 }
 
 PROMPT_COMMAND=custom_prompt
