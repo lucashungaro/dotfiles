@@ -1,6 +1,6 @@
 ### Environment variables ###
 
-export PATH="/usr/local/bin:/usr/local/sbin:/opt/local/bin:/opt/local/sbin:/usr/local/share/python:./bin:~:$PATH:."
+export PATH="/usr/local/bin:/usr/local/sbin:/opt/local/bin:/opt/local/sbin:/usr/local/share/python:~/.local/bin:./bin:~:$PATH:."
 export CDPATH=".:~:~/projects/personal:~/projects/sandbox"
 export LANG="en_US.UTF-8"
 
@@ -13,6 +13,8 @@ if [[ $OSTYPE == darwin* ]]; then
   export ARCHFLAGS="-arch x86_64"
   export EDITOR="mate -w"
 fi
+
+export DISPLAY=$(cat /etc/resolv.conf | grep nameserver | awk '{print $2; exit;}'):0.0
 
 ### Aliases ###
 
@@ -152,4 +154,5 @@ fi
 
 source "$HOME/.machine_specific_configs"
 
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+. "$HOME/.asdf/asdf.sh"
+. "$HOME/.asdf/completions/asdf.bash"
