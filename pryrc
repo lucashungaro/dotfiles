@@ -1,7 +1,7 @@
 # Copy line to clipboard
 def copy(*args) IO.popen('pbcopy', 'r+') { |clipboard| clipboard.puts args.map(&:inspect) }; end
 
-Pry.config.editor = "mate -w"
+Pry.config.editor = "code -w"
 
 Pry.config.prompt = proc do |obj, level, _|
   prompt = ""

@@ -2,12 +2,10 @@
   name = Lucas Húngaro
   email = lucashungaro@gmail.com
 [alias]
-  st = status -sb
-  co = checkout
   b = branch -a
   ci = commit
-  sci = svn dcommit
-  pm = pull origin master
+  co = checkout
+  st = status -sb
 [color]
   branch = auto
   diff = auto
@@ -19,5 +17,9 @@
   whitespace = nowarn
 [push]
   default = current
+[fetch]
+  prune = true
+[init]
+  defaultBranch = main
 [github]
   user = lucashungaro

@@ -8,12 +8,6 @@ export CLICOLOR=1
 export TERM=xterm-256color
 export LSCOLORS=DxGxcxdxCxegedabagacad
 
-if [[ $OSTYPE == darwin* ]]; then
-  export CFLAGS="-arch x86_64 -O2"
-  export ARCHFLAGS="-arch x86_64"
-  export EDITOR="mate -w"
-fi
-
 export DISPLAY=$(cat /etc/resolv.conf | grep nameserver | awk '{print $2; exit;}'):0.0
 
 ### Aliases ###
@@ -26,10 +20,6 @@ alias ..="cd .."
 alias ...="cd ../.."
 
 alias c="clear"
-
-if [[ $OSTYPE == darwin* ]]; then
-  alias vim="/Applications/MacVim.app/Contents/MacOS/Vim"
-fi
 
 # Bundler
 alias b="bundle"
@@ -73,18 +63,10 @@ if [[ $OSTYPE == darwin* ]]; then
   alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
   alias localip="ifconfig en0 inet | grep 'inet ' | awk ' { print $2 } '"
   alias ips="ifconfig -a | perl -nle'/(\d+\.\d+\.\d+\.\d+)/ && print $1'"
-
-  # textmate #
-  alias tm_update_bundles="sh ~/.update_tmbundles.sh"
-  alias tm_reload_bundles="osascript -e 'tell app \"TextMate\" to reload bundles'"
 fi
 
 # Enhanced WHOIS lookups
 alias whois="whois -h whois-servers.net"
-
-# Pair programming
-alias pair="sh ~/.pair"
-alias unpair="sh ~/.unpair"
 
 ### End Aliases ###
 
@@ -114,10 +96,6 @@ do
 done
 
 ### End Misc Utilities ###
-
-
-# Method missing for bash.
-# trap 'if ! type -t $BASH_COMMAND >/dev/null; then ~/.shell_method_missing.rb $BASH_COMMAND; fi' DEBUG
 
 ### Show current Git branch on prompt ###
 function parse_git_branch {
